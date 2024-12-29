@@ -23,6 +23,8 @@ Route::get('/broadcast', function () {
 
         Notification::send($user, new AllNotification(fluent($data)));
     }
+
+    echo "Notification sent";
 });
 
 Route::get('/dashboard', function () {

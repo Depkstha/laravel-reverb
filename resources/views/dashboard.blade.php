@@ -8,13 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900" x-data x-init="
-                {{-- Echo.channel('chat')
-                    .listen('Example', (event) => {
-                        notifyMe(event);
-                    }); --}}
-                
-                Echo.private('App.Models.User.{{ auth()->id() }}')
+                <div class="p-6 text-gray-900" x-data x-init="Echo.private('App.Models.User.{{ auth()->id() }}')
                     .notification((notification) => {
                         notifyMe(notification);
                     })
@@ -40,10 +34,35 @@
                         vibrate: [100, 50, 100],
                     });
                 }">
+                    <p class="mb-5">{{ __("You're logged in!") }}</p>
 
+                    <table class="border-seperate border border-slate-500">
+                        <thead>
+                            <tr>
+                                <th class="border border-slate-600">Title</th>
+                                <th class="border border-slate-600">Content</th>
+                                <th class="border border-slate-600">Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (auth()->user()->unreadNotifications as $notification)
+                                @php
+                                    $data = fluent($notification->data);
+                                @endphp
+                                <tr>
+                                    <td class="border border-slate-700">{{ $data->title }}</td>
+                                    <td class="border border-slate-700">{{ $data->content }}</td>
+                                    <td class="border border-slate-700">{{ $notification->created_at->diffForHumans() }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
-                    <button onclick="notifyMe({title: 'Hello', content: 'World'})">Send Notification</button>
-                    {{ __("You're logged in!") }}
+                <div class="mt-5">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onclick="notifyMe({title: 'Hello', content: 'World'})">Send Notification</button>
                 </div>
             </div>
         </div>
@@ -51,4 +70,3 @@
 
 
 </x-app-layout>
-

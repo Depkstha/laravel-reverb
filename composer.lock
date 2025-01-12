@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec676095fcf0ce05078b6cb99b6647e2",
+    "content-hash": "ad969190ebb00b616ed941ba317193e7",
     "packages": [
         {
             "name": "brick/math",
@@ -264,6 +264,54 @@
                 }
             ],
             "time": "2024-01-05T15:54:20+00:00"
+        },
+        {
+            "name": "devforest/laravel-dynamic-report-generator",
+            "version": "dev-Beta",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/md-sazzadul-islam/laravel-dynamic-report-generator.git",
+                "reference": "21139dbf95f0415e0869378b38709d4d57c72157"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/md-sazzadul-islam/laravel-dynamic-report-generator/zipball/21139dbf95f0415e0869378b38709d4d57c72157",
+                "reference": "21139dbf95f0415e0869378b38709d4d57c72157",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DevForest\\ReportGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DevForest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Md Sazzadul Islam",
+                    "email": "sazzadulislam6@gmail.com"
+                }
+            ],
+            "description": "A package for dynamic report generation with drag-and-drop interface in Laravel",
+            "support": {
+                "issues": "https://github.com/md-sazzadul-islam/laravel-dynamic-report-generator/issues",
+                "source": "https://github.com/md-sazzadul-islam/laravel-dynamic-report-generator/tree/Beta"
+            },
+            "time": "2024-09-03T06:53:37+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -9132,8 +9180,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "devforest/laravel-dynamic-report-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
